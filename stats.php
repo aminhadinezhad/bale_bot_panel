@@ -26,6 +26,30 @@ if (!isset($_SESSION['auth'])) { ?>
         <meta charset="UTF-8">
         <title>ورود به پنل</title>
         <style>
+            @font-face {
+                font-family: 'Kalameh';
+                src: url('assets/fonts/KalamehWeb(FaNum)-Regular.woff2') format('woff2');
+                font-weight: normal;
+            }
+
+            @font-face {
+                font-family: 'Kalameh';
+                src: url('assets/fonts/KalamehWeb(FaNum)-Medium.woff2') format('woff2');
+                font-weight: 500;
+            }
+
+            @font-face {
+                font-family: 'Kalameh';
+                src: url('assets/fonts/KalamehWeb(FaNum)-SemiBold.woff2') format('woff2');
+                font-weight: 600;
+            }
+
+            @font-face {
+                font-family: 'Kalameh';
+                src: url('assets/fonts/KalamehWeb(FaNum)-Bold.woff2') format('woff2');
+                font-weight: bold;
+            }
+
             * {
                 box-sizing: border-box;
                 margin: 0;
@@ -33,6 +57,7 @@ if (!isset($_SESSION['auth'])) { ?>
             }
 
             body {
+                font-family: 'Kalameh';
                 background: #0f172a;
                 display: flex;
                 justify-content: center;
