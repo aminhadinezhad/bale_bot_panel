@@ -25,7 +25,7 @@ if (!isset($_SESSION['auth'])) { ?>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ورود به پنل</title>
+        <title>ورود - تامین فلات</title>
         <style>
             @font-face {
                 font-family: 'Kalameh';
@@ -75,6 +75,9 @@ if (!isset($_SESSION['auth'])) { ?>
             }
 
             h2 {
+                display: flex;
+                align-items: center;
+                gap: 6px;
                 color: #1e293b;
                 text-align: center;
                 margin-bottom: 24px;
@@ -118,7 +121,18 @@ if (!isset($_SESSION['auth'])) { ?>
 
     <body>
         <div class="card">
-            <h2>🤖 پنل ربات تامین فلات</h2>
+            <h2>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="currentColor" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M13 7H11C8.19108 7 6.78661 7 5.77772 7.67412C5.34096 7.96596 4.96596 8.34096 4.67412 8.77772C4 9.78661 4 11.1911 4 14C4 16.8089 4 18.2134 4.67412 19.2223C4.96596 19.659 5.34096 20.034 5.77772 20.3259C6.78661 21 8.19108 21 11 21H13C15.8089 21 17.2134 21 18.2223 20.3259C18.659 20.034 19.034 19.659 19.3259 19.2223C20 18.2134 20 16.8089 20 14C20 11.1911 20 9.78661 19.3259 8.77772C19.034 8.34096 18.659 7.96596 18.2223 7.67412C17.2134 7 15.8089 7 13 7Z"></path>
+                    <path d="M4 14H2"></path>
+                    <path d="M10 17H14"></path>
+                    <path d="M22 14H20"></path>
+                    <path d="M15 11V13"></path>
+                    <path d="M9 11V13"></path>
+                    <path d="M12 7C12 5.11438 12 4.17157 11.4142 3.58579C10.8284 3 9.88562 3 8 3"></path>
+                </svg>
+                پنل ربات تامین فلات
+            </h2>
             <?php if (isset($error)) echo "<p class='error'>{$error}</p>"; ?>
             <form method="POST">
                 <input type="text" name="user" placeholder="نام کاربری" required>
@@ -150,7 +164,7 @@ $allSurveys = $db->query("SELECT first_name, rating, created_at FROM surveys ORD
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پنل ربات</title>
+    <title>داشبورد - تامین فلات</title>
     <style>
         @font-face {
             font-family: 'Kalameh';
@@ -207,7 +221,7 @@ $allSurveys = $db->query("SELECT first_name, rating, created_at FROM surveys ORD
         .logout {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 4px;
             padding: 8px 16px;
             background: #ef4444;
             color: #fff;
