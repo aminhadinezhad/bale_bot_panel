@@ -91,11 +91,11 @@ if (!isset($_SESSION['auth'])) { ?>
                 font-size: 18px;
             }
 
-            h2:first-child {
+            .login-header:first-child {
                 margin-bottom: 10px;
             }
 
-            h2:nth-child(3) {
+            .login-header:nth-child(3) {
                 margin-bottom: 12px;
             }
 
