@@ -91,7 +91,7 @@ if (!isset($_SESSION['auth'])) { ?>
                 font-size: 18px;
             }
 
-            h2:nth-child(1) {
+            h2:first-child {
                 margin-bottom: 6px;
             }
 
