@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($_POST['user'] === $ADMIN_USER && $_POST['pass'] === $ADMIN_PASS) {
         $_SESSION['auth'] = true;
     } else {
-        $error = 'نام کاربری یا رمز اشتباه است';
+        $error = 'نام کاربری یا رمز عبور اشتباه است';
     }
 }
 
