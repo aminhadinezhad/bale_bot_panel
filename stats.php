@@ -219,12 +219,6 @@ $allSurveys = $db->query("SELECT first_name, rating, created_at FROM surveys ORD
             color: #1e293b;
         }
 
-        h2 {
-            display: flex;
-            align-items: center;
-            gap: 2px;
-        }
-
         .logout {
             display: flex;
             align-items: center;
@@ -266,8 +260,9 @@ $allSurveys = $db->query("SELECT first_name, rating, created_at FROM surveys ORD
 
         .card .label {
             display: flex;
+            justify-content: center;
             align-items: center;
-            gap: 2px;
+            gap: 4px;
             font-size: 13px;
             color: #64748b;
             margin-top: 6px;
@@ -278,6 +273,10 @@ $allSurveys = $db->query("SELECT first_name, rating, created_at FROM surveys ORD
         }
 
         .section h2 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
             font-size: 15px;
             color: #64748b;
             margin-bottom: 12px;
