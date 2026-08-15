@@ -1,6 +1,6 @@
 <?php
 $ADMIN_USER = 'taminfalat';
-$ADMIN_PASS = 'Tf@2026';
+$ADMIN_PASS = 'Tf@2026#bot';
 
 session_start();
 
@@ -314,19 +314,19 @@ $allSurveys = $db->query("SELECT first_name, rating, created_at FROM surveys ORD
         </div>
         <div class="card">
             <div class="num"><?= $great ?></div>
-            <div class="label">⭐ عالی</div>
+            <div class="label">😍 عالی</div>
         </div>
         <div class="card">
             <div class="num"><?= $good ?></div>
-            <div class="label">✅ خوب</div>
+            <div class="label">😊 خوب</div>
         </div>
         <div class="card">
             <div class="num"><?= $mid ?></div>
-            <div class="label">😐 متوسط</div>
+            <div class="label">🙂 متوسط</div>
         </div>
         <div class="card">
             <div class="num"><?= $bad ?></div>
-            <div class="label">👎 ضعیف</div>
+            <div class="label">☹️ ضعیف</div>
         </div>
     </div>
 
