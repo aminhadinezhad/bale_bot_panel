@@ -1,6 +1,6 @@
 <?php
 $ADMIN_USER = 'admin';
-$ADMIN_PASS = 'amin9236hn';
+$ADMIN_PASS = 'admin';
 
 session_start();
 
