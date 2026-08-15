@@ -63,7 +63,6 @@ if (!isset($_SESSION['auth'])) { ?>
                 justify-content: center;
                 align-items: center;
                 height: 100vh;
-                font-family: Tahoma;
             }
 
             .card {
