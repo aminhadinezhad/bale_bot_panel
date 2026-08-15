@@ -199,6 +199,8 @@ $allSurveys = $db->query("SELECT first_name, rating, created_at FROM surveys ORD
         }
 
         h1 {
+            display: flex;
+            align-items: center;
             font-size: 20px;
             color: #1e293b;
         }
