@@ -93,7 +93,7 @@ if (!isset($_SESSION['auth'])) { ?>
             }
 
             .login-header>svg {
-                margin-bottom: 20px;
+                margin-bottom: 6px;
             }
 
             input {
