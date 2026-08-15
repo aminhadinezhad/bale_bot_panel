@@ -90,7 +90,6 @@ if (!isset($_SESSION['auth'])) { ?>
                 background: #f8fafc;
                 color: #1e293b;
                 font-size: 14px;
-                font-family: 'Kalameh', Tahoma;
             }
 
             button {
@@ -102,7 +101,6 @@ if (!isset($_SESSION['auth'])) { ?>
                 border-radius: 8px;
                 font-size: 15px;
                 cursor: pointer;
-                font-family: 'Kalameh', Tahoma;
             }
 
             button:hover {
@@ -207,7 +205,9 @@ $allSurveys = $db->query("SELECT first_name, rating, created_at FROM surveys ORD
         }
 
         .logout {
-            display: inline-block;
+            display: flex;
+            align-items: center;
+            gap: 6px;
             padding: 8px 16px;
             background: #ef4444;
             color: #fff;
@@ -216,7 +216,6 @@ $allSurveys = $db->query("SELECT first_name, rating, created_at FROM surveys ORD
             font-size: 13px;
             cursor: pointer;
             text-decoration: none;
-            font-family: 'Kalameh', Tahoma;
         }
 
         .logout:hover {
@@ -333,7 +332,13 @@ $allSurveys = $db->query("SELECT first_name, rating, created_at FROM surveys ORD
                 <path d="M12 7C12 5.11438 12 4.17157 11.4142 3.58579C10.8284 3 9.88562 3 8 3"></path>
             </svg>
             پنل ربات تامین فلات</h1>
-        <a href="?logout" class="logout">خروج</a>
+        <a href="?logout" class="logout">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="currentColor" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.39267 4.00087C4 4.61597 4 5.41166 4 7.00304V16.997C4 18.5883 4 19.384 4.39267 19.9991C4.46279 20.109 4.5414 20.2132 4.62777 20.3108C5.11144 20.8572 5.87666 21.0758 7.4071 21.513C8.9414 21.9513 9.70856 22.1704 10.264 21.8417C10.3604 21.7847 10.45 21.7171 10.5313 21.6402C11 21.1965 11 20.3988 11 18.8034V5.19662C11 3.60122 11 2.80351 10.5313 2.35982C10.45 2.28288 10.3604 2.21527 10.264 2.15827C9.70856 1.82956 8.9414 2.0487 7.4071 2.48699C5.87666 2.92418 5.11144 3.14278 4.62777 3.68925C4.5414 3.78684 4.46279 3.89103 4.39267 4.00087Z"></path>
+                <path d="M11 4H13.0171C14.9188 4 15.8696 4 16.4604 4.58579C16.7898 4.91238 16.9355 5.34994 17 6M11 20H13.0171C14.9188 20 15.8696 20 16.4604 19.4142C16.7898 19.0876 16.9355 18.6501 17 18"></path>
+                <path d="M21 12H14M19.5 9.49994C19.5 9.49994 22 11.3412 22 12C22 12.6588 19.5 14.4999 19.5 14.4999"></path>
+            </svg>
+            خروج</a>
     </div>
 
     <div class="grid">
