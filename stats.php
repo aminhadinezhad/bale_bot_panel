@@ -79,6 +79,7 @@ if (!isset($_SESSION['auth'])) { ?>
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
+                margin-bottom: 12px;
             }
 
             h2 {
@@ -91,12 +92,8 @@ if (!isset($_SESSION['auth'])) { ?>
                 font-size: 18px;
             }
 
-            .login-header:first-child {
-                margin-bottom: 10px;
-            }
-
-            .login-header:nth-child(3) {
-                margin-bottom: 12px;
+            .login-header>svg {
+                margin-bottom: 20px;
             }
 
             input {
