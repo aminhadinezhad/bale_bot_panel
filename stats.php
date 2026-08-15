@@ -51,14 +51,14 @@ if (!isset($_SESSION['auth'])) { ?>
             }
 
             * {
-                font-family: 'Kalameh';
+                font-family: 'Kalameh', Tahoma;
                 box-sizing: border-box;
                 margin: 0;
                 padding: 0;
             }
 
             body {
-                background: #0f172a;
+                background: #f1f5f9;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -66,14 +66,15 @@ if (!isset($_SESSION['auth'])) { ?>
             }
 
             .card {
-                background: #1e293b;
+                background: #fff;
                 padding: 40px;
                 border-radius: 12px;
                 width: 340px;
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
             }
 
             h2 {
-                color: #fff;
+                color: #1e293b;
                 text-align: center;
                 margin-bottom: 24px;
                 font-size: 18px;
@@ -84,10 +85,11 @@ if (!isset($_SESSION['auth'])) { ?>
                 padding: 12px;
                 margin-bottom: 14px;
                 border-radius: 8px;
-                border: 1px solid #334155;
-                background: #0f172a;
-                color: #fff;
+                border: 1px solid #e2e8f0;
+                background: #f8fafc;
+                color: #1e293b;
                 font-size: 14px;
+                font-family: 'Kalameh', Tahoma;
             }
 
             button {
@@ -99,6 +101,7 @@ if (!isset($_SESSION['auth'])) { ?>
                 border-radius: 8px;
                 font-size: 15px;
                 cursor: pointer;
+                font-family: 'Kalameh', Tahoma;
             }
 
             button:hover {
@@ -106,7 +109,7 @@ if (!isset($_SESSION['auth'])) { ?>
             }
 
             .error {
-                color: #f87171;
+                color: #ef4444;
                 text-align: center;
                 margin-bottom: 12px;
                 font-size: 13px;
@@ -174,15 +177,15 @@ $allSurveys = $db->query("SELECT first_name, rating, created_at FROM surveys ORD
         }
 
         * {
-            font-family: 'Kalameh';
+            font-family: 'Kalameh', Tahoma;
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
         body {
-            background: #0f172a;
-            color: #e2e8f0;
+            background: #f1f5f9;
+            color: #1e293b;
             padding: 30px;
         }
 
@@ -195,11 +198,11 @@ $allSurveys = $db->query("SELECT first_name, rating, created_at FROM surveys ORD
 
         h1 {
             font-size: 20px;
-            color: #fff;
+            color: #1e293b;
         }
 
         .logout {
-            color: #f87171;
+            color: #ef4444;
             text-decoration: none;
             font-size: 13px;
         }
@@ -212,10 +215,11 @@ $allSurveys = $db->query("SELECT first_name, rating, created_at FROM surveys ORD
         }
 
         .card {
-            background: #1e293b;
+            background: #fff;
             border-radius: 10px;
             padding: 20px;
             text-align: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
         }
 
         .card .num {
@@ -226,7 +230,7 @@ $allSurveys = $db->query("SELECT first_name, rating, created_at FROM surveys ORD
 
         .card .label {
             font-size: 13px;
-            color: #94a3b8;
+            color: #64748b;
             margin-top: 6px;
         }
 
@@ -236,31 +240,35 @@ $allSurveys = $db->query("SELECT first_name, rating, created_at FROM surveys ORD
 
         .section h2 {
             font-size: 15px;
-            color: #94a3b8;
+            color: #64748b;
             margin-bottom: 12px;
             padding-bottom: 8px;
-            border-bottom: 1px solid #1e293b;
+            border-bottom: 1px solid #e2e8f0;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            background: #1e293b;
+            background: #fff;
             border-radius: 10px;
             overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
         }
 
         th {
-            background: #334155;
+            background: #f8fafc;
             padding: 12px 16px;
             font-size: 13px;
             text-align: right;
+            color: #475569;
+            border-bottom: 1px solid #e2e8f0;
         }
 
         td {
             padding: 10px 16px;
-            border-bottom: 1px solid #0f172a;
+            border-bottom: 1px solid #f1f5f9;
             font-size: 13px;
+            color: #334155;
         }
 
         tr:last-child td {
@@ -275,23 +283,23 @@ $allSurveys = $db->query("SELECT first_name, rating, created_at FROM surveys ORD
         }
 
         .badge.عالی {
-            background: #14532d;
-            color: #86efac;
+            background: #dcfce7;
+            color: #16a34a;
         }
 
         .badge.خوب {
-            background: #1e3a5f;
-            color: #93c5fd;
+            background: #dbeafe;
+            color: #2563eb;
         }
 
         .badge.متوسط {
-            background: #3f3a00;
-            color: #fde68a;
+            background: #fef9c3;
+            color: #ca8a04;
         }
 
         .badge.ضعیف {
-            background: #4c0519;
-            color: #fca5a5;
+            background: #fee2e2;
+            color: #dc2626;
         }
     </style>
 </head>
