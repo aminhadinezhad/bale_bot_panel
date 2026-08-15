@@ -24,6 +24,7 @@ if (!isset($_SESSION['auth'])) { ?>
 
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>ورود به پنل</title>
         <style>
             @font-face {
@@ -150,6 +151,7 @@ $allSurveys = $db->query("SELECT first_name, rating, created_at FROM surveys ORD
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>پنل ربات</title>
     <style>
         @font-face {
@@ -203,7 +205,7 @@ $allSurveys = $db->query("SELECT first_name, rating, created_at FROM surveys ORD
 
         .logout {
             display: inline-block;
-            padding: 8px 20px;
+            padding: 8px 16px;
             background: #ef4444;
             color: #fff;
             border: none;
