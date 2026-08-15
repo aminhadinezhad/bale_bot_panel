@@ -79,7 +79,7 @@ if (!isset($_SESSION['auth'])) { ?>
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                margin-bottom: 12px;
+                margin-bottom: 24px;
             }
 
             h2 {
