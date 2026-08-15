@@ -1,6 +1,6 @@
 <?php
 $ADMIN_USER = 'taminfalat';
-$ADMIN_PASS = 'Tf@2026#bot';
+$ADMIN_PASS = 'Tf@2026';
 
 session_start();
 
