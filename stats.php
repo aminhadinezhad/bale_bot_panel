@@ -203,9 +203,9 @@ $allSurveys = $db->query("SELECT first_name, rating, created_at FROM surveys ORD
 
         .logout {
             display: inline-block;
-            padding: 6px 16px;
-            background: #fee2e2;
-            color: #dc2626;
+            padding: 8px 20px;
+            background: #ef4444;
+            color: #fff;
             border: none;
             border-radius: 8px;
             font-size: 13px;
@@ -215,7 +215,7 @@ $allSurveys = $db->query("SELECT first_name, rating, created_at FROM surveys ORD
         }
 
         .logout:hover {
-            background: #fecaca;
+            background: #dc2626;
         }
 
         .grid {
