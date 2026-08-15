@@ -92,7 +92,7 @@ if (!isset($_SESSION['auth'])) { ?>
             }
 
             h2:first-child {
-                margin-bottom: 6px;
+                margin-bottom: 10px;
             }
 
             h2:nth-child(3) {
