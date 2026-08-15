@@ -51,13 +51,13 @@ if (!isset($_SESSION['auth'])) { ?>
             }
 
             * {
+                font-family: 'Kalameh';
                 box-sizing: border-box;
                 margin: 0;
                 padding: 0;
             }
 
             body {
-                font-family: 'Kalameh';
                 background: #0f172a;
                 display: flex;
                 justify-content: center;
@@ -174,13 +174,13 @@ $allSurveys = $db->query("SELECT first_name, rating, created_at FROM surveys ORD
         }
 
         * {
+            font-family: 'Kalameh';
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
         body {
-            font-family: 'Kalameh';
             background: #0f172a;
             color: #e2e8f0;
             padding: 30px;
