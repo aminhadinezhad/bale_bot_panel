@@ -202,9 +202,20 @@ $allSurveys = $db->query("SELECT first_name, rating, created_at FROM surveys ORD
         }
 
         .logout {
-            color: #ef4444;
-            text-decoration: none;
+            display: inline-block;
+            padding: 6px 16px;
+            background: #fee2e2;
+            color: #dc2626;
+            border: none;
+            border-radius: 8px;
             font-size: 13px;
+            cursor: pointer;
+            text-decoration: none;
+            font-family: 'Kalameh', Tahoma;
+        }
+
+        .logout:hover {
+            background: #fecaca;
         }
 
         .grid {
