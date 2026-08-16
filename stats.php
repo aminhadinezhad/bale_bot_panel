@@ -394,7 +394,7 @@ $allSurveys = $db->query("SELECT first_name, rating, created_at FROM surveys ORD
                     <path d="M9 13H7C5.11438 13 4.17157 13 3.58579 13.5858C3 14.1716 3 15.1144 3 17C3 18.8856 3 19.8284 3.58579 20.4142C4.17157 21 5.11438 21 7 21H9V13Z"></path>
                 </svg>نظرسنجی‌ها</div>
         </div>
-        <div class="card">
+        <!-- <div class="card">
             <div class="num"><?= $great ?></div>
             <div class="label">😍 عالی</div>
         </div>
@@ -409,7 +409,7 @@ $allSurveys = $db->query("SELECT first_name, rating, created_at FROM surveys ORD
         <div class="card">
             <div class="num"><?= $bad ?></div>
             <div class="label">☹️ ضعیف</div>
-        </div>
+        </div> -->
     </div>
 
     <div class="section">
