@@ -157,7 +157,7 @@ if (!isset($_SESSION['auth'])) { ?>
                     تامین فلات
                 </h2>
                 <h1>
-                    ورود به پنل ربات
+                    ورود به پنل ربات بله
                 </h1>
             </div>
             <?php if (isset($error)) echo "<p class='error'>{$error}</p>"; ?>
