@@ -89,7 +89,7 @@ if (!isset($_SESSION['auth'])) { ?>
                 gap: 6px;
                 color: #1e293b;
                 text-align: center;
-                font-size: 18px;
+                font-size: 16px;
             }
 
             h1 {
@@ -99,7 +99,7 @@ if (!isset($_SESSION['auth'])) { ?>
                 gap: 6px;
                 color: #1e293b;
                 text-align: center;
-                font-size: 20px;
+                font-size: 24px;
             }
 
             .login-header>svg {
