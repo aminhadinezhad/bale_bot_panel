@@ -92,6 +92,16 @@ if (!isset($_SESSION['auth'])) { ?>
                 font-size: 18px;
             }
 
+            h1 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 6px;
+                color: #1e293b;
+                text-align: center;
+                font-size: 20px;
+            }
+
             .login-header>svg {
                 margin-bottom: 6px;
             }
@@ -146,9 +156,9 @@ if (!isset($_SESSION['auth'])) { ?>
                 <h2>
                     تامین فلات
                 </h2>
-                <h2>
-                    ورود
-                </h2>
+                <h1>
+                    ورود به پنل ربات
+                </h1>
             </div>
             <?php if (isset($error)) echo "<p class='error'>{$error}</p>"; ?>
             <form method="POST">
