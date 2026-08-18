@@ -158,7 +158,7 @@ if (!isset($_SESSION['auth'])) { ?>
                     تامین فلات
                 </h2>
                 <h1>
-                    ورود به داشبورد ربات
+                    ورود به داشبورد
                 </h1>
             </div>
             <?php if (isset($error)) echo "<p class='error'>{$error}</p>"; ?>
