@@ -1,7 +1,9 @@
 <?php
 
-$ADMIN_USER = 'taminfalat';
-$ADMIN_PASS = 'Tf@2026#bot';
+$config = require __DIR__ . '/config.php';
+
+$ADMIN_USER = $config['admin_user'];
+$ADMIN_PASS = $config['admin_pass'];
 
 session_start();
 
