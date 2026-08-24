@@ -498,7 +498,6 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
             color: #fff;
             border: none;
             border-radius: 8px;
-            font-size: 14px;
             cursor: pointer;
         }
 
