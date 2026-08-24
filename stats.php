@@ -357,7 +357,6 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
             margin-top: 4px;
         }
 
-        /* جدول */
         .table-card {
             background: #fff;
             border-radius: 10px;
@@ -629,7 +628,7 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
                 </svg>
                 روتین‌های ربات
             </a>
-            <div style="margin-top: 10px">
+            <div style="margin-top: 24px">
                 <a href="?logout" class="logout">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
                         <path d="M21 12H14M19.5 9.5C19.5 9.5 22 11.3412 22 12C22 12.6588 19.5 14.5 19.5 14.5" />
