@@ -785,19 +785,6 @@ $pdfDate = $pdfExists
                 cursor: pointer;
             }
 
-            .mobile-menu-btn span {
-                display: block;
-
-                width: 20px;
-                height: 2px;
-
-                background: #334155;
-
-                border-radius: 2px;
-
-                transition: all 0.2s ease;
-            }
-
             /*
             | Sidebar
             */
@@ -918,22 +905,6 @@ $pdfDate = $pdfExists
                 opacity: 1;
 
                 visibility: visible;
-            }
-
-            /*
-            | Hamburger -> X
-            */
-
-            .mobile-menu-btn.active span:nth-child(1) {
-                transform: translateY(7px) rotate(45deg);
-            }
-
-            .mobile-menu-btn.active span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .mobile-menu-btn.active span:nth-child(3) {
-                transform: translateY(-7px) rotate(-45deg);
             }
 
             /*
@@ -1438,24 +1409,6 @@ $pdfDate = $pdfExists
             );
         }
 
-        function closeMenu() {
-            sidebar.classList.remove('open');
-            menuBtn.classList.remove('active');
-            overlay.classList.remove('active');
-            menuBtn.setAttribute(
-                'aria-expanded',
-                'false'
-            );
-        }
-
-        function toggleMenu() {
-            if (sidebar.classList.contains('open')) {
-                closeMenu();
-            } else {
-                openMenu();
-            }
-        }
-
         /*
         |--------------------------------------------------------------------------
         | Hamburger
@@ -1464,7 +1417,7 @@ $pdfDate = $pdfExists
 
         menuBtn.addEventListener(
             'click',
-            toggleMenu
+            openMenu
         );
 
         /*
