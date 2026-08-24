@@ -183,7 +183,7 @@ $bad     = $db->querySingle("SELECT COUNT(*) FROM surveys WHERE rating='ضعیف
 $allUsers   = $db->query("SELECT first_name, started_at FROM users ORDER BY id DESC");
 $allSurveys = $db->query("SELECT first_name, rating, created_at FROM surveys ORDER BY id DESC");
 
-$activePage = $_GET['page'] ?? 'users';
+$activePage = $_GET['page'] ?? 'dashboard';
 $pdfExists  = file_exists('/var/www/bot/assets/files/price-list.pdf');
 $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/files/price-list.pdf')) : null;
 ?>
@@ -233,6 +233,7 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
             min-height: 100vh;
         }
 
+        /* ساید بار */
         .sidebar {
             width: 240px;
             background: #fff;
@@ -244,6 +245,7 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
             top: 0;
             right: 0;
             bottom: 0;
+            z-index: 1000;
         }
 
         .sidebar-logo {
@@ -315,6 +317,7 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
             background: #dc2626;
         }
 
+        /* محتوا */
         .main {
             margin-right: 240px;
             padding: 30px;
@@ -534,50 +537,81 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
             color: #dc2626;
         }
 
+        /* همبرگر */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+            border: none;
+            background: #fff;
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            z-index: 1001;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+            transition: background 0.2s;
+        }
+
+        .hamburger:hover {
+            background: #f1f5f9;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: #1e293b;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            backdrop-filter: blur(2px);
+        }
+
+        .overlay.show {
+            display: block;
+        }
+
+        /* موبایل */
         @media (max-width: 768px) {
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: static;
-                border-left: none;
-                border-bottom: 1px solid #e2e8f0;
-                flex-direction: row;
-                padding: 12px;
-                align-items: center;
-                flex-wrap: wrap;
-                gap: 8px;
-            }
-
-            .sidebar-logo {
-                border-bottom: none;
-                padding-bottom: 0;
-                margin-bottom: 0;
-            }
-
-            .sidebar nav {
+            .hamburger {
                 display: flex;
-                flex-wrap: wrap;
-                gap: 4px;
             }
 
-            .sidebar nav a {
-                padding: 8px 12px;
-                margin: 0;
+            .sidebar {
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                width: 260px;
             }
 
-            .sidebar-footer {
-                margin-top: 0;
-                padding: 0;
-                border-top: none;
+            .sidebar.open {
+                transform: translateX(0);
             }
 
             .main {
                 margin-right: 0;
-                padding: 16px;
-            }
-
-            body {
-                flex-direction: column;
+                padding: 20px 16px 16px;
             }
 
             table {
@@ -589,6 +623,14 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
 </head>
 
 <body>
+
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+    <button class="hamburger" id="hamburger" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 
     <aside class="sidebar">
         <div class="sidebar-logo">
@@ -603,10 +645,8 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
         <nav>
             <a href="?page=dashboard" class="<?= $activePage === 'dashboard' ? 'active' : '' ?>">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-                    <path d="M13 11C13 8.79086 11.2091 7 9 7C6.79086 7 5 8.79086 5 11C5 13.2091 6.79086 15 9 15C11.2091 15 13 13.2091 13 11Z" />
-                    <path d="M15 21C15 17.6863 12.3137 15 9 15C5.68629 15 3 17.6863 3 21" />
-                    <path d="M21 17C21 13.6863 18.3137 11 15 11" />
-                    <path d="M11.0386 7.55773C11.5412 6.60885 12.3702 6 13.5 6C15.433 6 17 7.567 17 9.5" />
+                    <path d="M2 12C2 8.22876 2 6.34315 3.17157 5.17157C4.34315 4 6.22876 4 10 4H14C17.7712 4 19.6569 4 20.8284 5.17157C22 6.34315 22 8.22876 22 12V14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V12Z" />
+                    <path d="M10 16H14M10 12H14M10 8H14M6 16V16.01M6 12V12.01M6 8V8.01" />
                 </svg>
                 داشبورد
             </a>
@@ -657,12 +697,12 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
             <div class="page-header">
                 <h1>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round">
-                        <path d="M13 11C13 8.79086 11.2091 7 9 7C6.79086 7 5 8.79086 5 11C5 13.2091 6.79086 15 9 15C11.2091 15 13 13.2091 13 11Z" />
-                        <path d="M15 21C15 17.6863 12.3137 15 9 15C5.68629 15 3 17.6863 3 21" />
-                        <path d="M21 17C21 13.6863 18.3137 11 15 11" />
+                        <path d="M2 12C2 8.22876 2 6.34315 3.17157 5.17157C4.34315 4 6.22876 4 10 4H14C17.7712 4 19.6569 4 20.8284 5.17157C22 6.34315 22 8.22876 22 12V14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V12Z" />
+                        <path d="M10 16H14M10 12H14M10 8H14M6 16V16.01M6 12V12.01M6 8V8.01" />
                     </svg>
                     داشبورد
                 </h1>
+                <p>خلاصه آمار ربات تامین فلات</p>
             </div>
 
             <div class="grid">
@@ -670,10 +710,25 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
                     <div class="num"><?= $users ?></div>
                     <div class="label">کل کاربران</div>
                 </div>
-
                 <div class="stat-card">
                     <div class="num"><?= $surveys ?></div>
                     <div class="label">کل نظرها</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num"><?= $great ?></div>
+                    <div class="label">😍 عالی</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num"><?= $good ?></div>
+                    <div class="label">😊 خوب</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num"><?= $mid ?></div>
+                    <div class="label">🙂 متوسط</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num"><?= $bad ?></div>
+                    <div class="label">☹️ ضعیف</div>
                 </div>
             </div>
 
@@ -688,6 +743,7 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
                     </svg>
                     کاربران
                 </h1>
+                <p>لیست کاربرانی که ربات را استارت کرده‌اند</p>
             </div>
 
             <div class="table-card">
@@ -716,6 +772,30 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
                     </svg>
                     نظرسنجی‌ها
                 </h1>
+                <p>نتایج نظرسنجی رضایت مشتریان</p>
+            </div>
+
+            <div class="grid">
+                <div class="stat-card">
+                    <div class="num"><?= $surveys ?></div>
+                    <div class="label">کل نظرها</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num"><?= $great ?></div>
+                    <div class="label">😍 عالی</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num"><?= $good ?></div>
+                    <div class="label">😊 خوب</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num"><?= $mid ?></div>
+                    <div class="label">🙂 متوسط</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num"><?= $bad ?></div>
+                    <div class="label">☹️ ضعیف</div>
+                </div>
             </div>
 
             <div class="table-card">
@@ -745,6 +825,7 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
                     </svg>
                     روتین‌های ربات
                 </h1>
+                <p>مدیریت فایل‌ها و تنظیمات ربات</p>
             </div>
 
             <?php if ($uploadMessage): ?>
@@ -760,6 +841,17 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
                     آپلود فهرست اقلام و قیمت
                 </h2>
 
+                <?php if ($pdfExists): ?>
+                    <div class="file-info">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M9 17H15M9 13H15M9 9H11" stroke-linecap="round" />
+                            <path d="M3 10C3 6.22876 3 4.34315 4.17157 3.17157C5.34315 2 7.22876 2 11 2H13C16.7712 2 18.6569 2 19.8284 3.17157C21 4.34315 21 6.22876 21 10V14C21 17.7712 21 19.6569 19.8284 20.8284C18.6569 22 16.7712 22 13 22H11C7.22876 22 5.34315 22 4.17157 20.8284C3 19.6569 3 17.7712 3 14V10Z" />
+                        </svg>
+                        آخرین فایل: <?= $pdfDate ?> —
+                        <a href="https://bot.taminfalat.com/assets/files/price-list.pdf" target="_blank">مشاهده فایل فعلی</a>
+                    </div>
+                <?php endif; ?>
+
                 <form method="POST" enctype="multipart/form-data">
                     <div class="upload-zone" onclick="document.getElementById('price_pdf').click()">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round">
@@ -774,16 +866,38 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
                 </form>
             </div>
 
-            <script>
-                document.getElementById('price_pdf').addEventListener('change', function() {
-                    const label = document.getElementById('file-name-label');
-                    label.textContent = this.files[0] ? this.files[0].name : 'برای انتخاب فایل کلیک کنید';
-                });
-            </script>
-
         <?php endif; ?>
 
     </main>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            const hamburger = document.getElementById('hamburger');
+            const overlay = document.getElementById('overlay');
+
+            sidebar.classList.toggle('open');
+            hamburger.classList.toggle('open');
+            overlay.classList.toggle('show');
+
+            document.body.style.overflow =
+                sidebar.classList.contains('open') ? 'hidden' : '';
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const sidebar = document.querySelector('.sidebar');
+                if (sidebar.classList.contains('open')) toggleSidebar();
+            }
+        });
+
+        document.getElementById('price_pdf') &&
+            document.getElementById('price_pdf').addEventListener('change', function() {
+                const label = document.getElementById('file-name-label');
+                if (label) label.textContent = this.files[0] ? this.files[0].name : 'برای انتخاب فایل کلیک کنید';
+            });
+    </script>
+
 </body>
 
 </html>
