@@ -250,10 +250,6 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
         }
 
         .sidebar-logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            gap: 10px;
             padding: 0 20px 24px;
             border-bottom: 1px solid #e2e8f0;
             margin-bottom: 16px;
