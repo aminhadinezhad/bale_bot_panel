@@ -821,7 +821,7 @@ $pdfDate = $pdfExists
                 flex-direction: column;
 
                 transform: translateX(100%);
-                transition: transform 0.25s ease;
+                transition: transform 3.25s ease;
             }
 
             .sidebar.open {
