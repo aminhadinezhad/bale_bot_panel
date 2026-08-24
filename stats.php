@@ -617,7 +617,6 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
             }
 
             table {
-                display: block;
                 overflow-x: auto;
             }
         }
