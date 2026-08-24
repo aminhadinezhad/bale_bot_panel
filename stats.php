@@ -700,7 +700,6 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
                     </svg>
                     داشبورد
                 </h1>
-                <p>خلاصه آمار ربات تامین فلات</p>
             </div>
 
             <div class="grid">
@@ -796,17 +795,6 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
                     </svg>
                     آپلود لیست اقلام + قیمت
                 </h2>
-
-                <?php if ($pdfExists): ?>
-                    <div class="file-info">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M9 17H15M9 13H15M9 9H11" stroke-linecap="round" />
-                            <path d="M3 10C3 6.22876 3 4.34315 4.17157 3.17157C5.34315 2 7.22876 2 11 2H13C16.7712 2 18.6569 2 19.8284 3.17157C21 4.34315 21 6.22876 21 10V14C21 17.7712 21 19.6569 19.8284 20.8284C18.6569 22 16.7712 22 13 22H11C7.22876 22 5.34315 22 4.17157 20.8284C3 19.6569 3 17.7712 3 14V10Z" />
-                        </svg>
-                        آخرین فایل: <?= $pdfDate ?> —
-                        <a href="https://bot.taminfalat.com/assets/files/price-list.pdf" target="_blank">مشاهده فایل فعلی</a>
-                    </div>
-                <?php endif; ?>
 
                 <form method="POST" enctype="multipart/form-data">
                     <div class="upload-zone" onclick="document.getElementById('price_pdf').click()">
