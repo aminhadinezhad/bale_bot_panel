@@ -73,7 +73,6 @@ if (
                 'type' => 'success',
                 'text' => 'فایل با موفقیت بارگذاری و جایگزین شد.'
             ];
-
         } else {
 
             $uploadMessage = [
@@ -81,7 +80,6 @@ if (
                 'text' => 'خطا در ذخیره فایل روی سرور.'
             ];
         }
-
     } else {
 
         $uploadMessage = [
@@ -100,201 +98,193 @@ if (
 if (!isset($_SESSION['auth'])) {
 ?>
 
-<!DOCTYPE html>
-<html dir="rtl">
+    <!DOCTYPE html>
+    <html dir="rtl">
 
-<head>
+    <head>
 
-    <meta charset="UTF-8">
+        <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ورود - تامین فلات</title>
+        <title>ورود - تامین فلات</title>
 
-    <style>
+        <style>
+            @font-face {
+                font-family: 'Kalameh';
+                src: url('../assets/fonts/KalamehWeb(FaNum)-Regular.woff2') format('woff2');
+                font-weight: normal;
+            }
 
-        @font-face {
-            font-family: 'Kalameh';
-            src: url('../assets/fonts/KalamehWeb(FaNum)-Regular.woff2') format('woff2');
-            font-weight: normal;
-        }
+            @font-face {
+                font-family: 'Kalameh';
+                src: url('../assets/fonts/KalamehWeb(FaNum)-Medium.woff2') format('woff2');
+                font-weight: 500;
+            }
 
-        @font-face {
-            font-family: 'Kalameh';
-            src: url('../assets/fonts/KalamehWeb(FaNum)-Medium.woff2') format('woff2');
-            font-weight: 500;
-        }
+            @font-face {
+                font-family: 'Kalameh';
+                src: url('../assets/fonts/KalamehWeb(FaNum)-SemiBold.woff2') format('woff2');
+                font-weight: 600;
+            }
 
-        @font-face {
-            font-family: 'Kalameh';
-            src: url('../assets/fonts/KalamehWeb(FaNum)-SemiBold.woff2') format('woff2');
-            font-weight: 600;
-        }
+            @font-face {
+                font-family: 'Kalameh';
+                src: url('../assets/fonts/KalamehWeb(FaNum)-Bold.woff2') format('woff2');
+                font-weight: bold;
+            }
 
-        @font-face {
-            font-family: 'Kalameh';
-            src: url('../assets/fonts/KalamehWeb(FaNum)-Bold.woff2') format('woff2');
-            font-weight: bold;
-        }
+            * {
+                font-family: 'Kalameh', Tahoma;
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
 
-        * {
-            font-family: 'Kalameh', Tahoma;
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+            body {
+                background: #f1f5f9;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
 
-        body {
-            background: #f1f5f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+            .card {
+                background: #fff;
+                padding: 40px;
+                border-radius: 12px;
+                width: 340px;
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            }
 
-        .card {
-            background: #fff;
-            padding: 40px;
-            border-radius: 12px;
-            width: 340px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-        }
+            .login-header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 24px;
+                gap: 6px;
+            }
 
-        .login-header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 24px;
-            gap: 6px;
-        }
+            h2 {
+                color: #1e293b;
+                font-size: 16px;
+            }
 
-        h2 {
-            color: #1e293b;
-            font-size: 16px;
-        }
+            h1 {
+                color: #1e293b;
+                font-size: 22px;
+            }
 
-        h1 {
-            color: #1e293b;
-            font-size: 22px;
-        }
+            input {
+                width: 100%;
+                padding: 12px;
+                margin-bottom: 14px;
+                border-radius: 8px;
+                border: 1px solid #e2e8f0;
+                background: #f8fafc;
+                color: #1e293b;
+                font-size: 14px;
+            }
 
-        input {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 14px;
-            border-radius: 8px;
-            border: 1px solid #e2e8f0;
-            background: #f8fafc;
-            color: #1e293b;
-            font-size: 14px;
-        }
+            button {
+                width: 100%;
+                padding: 12px;
+                background: #3b82f6;
+                color: #fff;
+                border: none;
+                border-radius: 8px;
+                font-size: 15px;
+                cursor: pointer;
+            }
 
-        button {
-            width: 100%;
-            padding: 12px;
-            background: #3b82f6;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            font-size: 15px;
-            cursor: pointer;
-        }
+            button:hover {
+                background: #2563eb;
+            }
 
-        button:hover {
-            background: #2563eb;
-        }
+            .error {
+                color: #ef4444;
+                text-align: center;
+                margin-bottom: 12px;
+                font-size: 13px;
+            }
+        </style>
 
-        .error {
-            color: #ef4444;
-            text-align: center;
-            margin-bottom: 12px;
-            font-size: 13px;
-        }
+    </head>
 
-    </style>
+    <body>
 
-</head>
+        <div class="card">
 
-<body>
+            <div class="login-header">
 
-    <div class="card">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="32"
+                    height="32"
+                    fill="none"
+                    stroke="#3b82f6"
+                    stroke-width="1.5">
+                    <path
+                        d="M19 16V14C19 11.1716 19 9.75736 18.1213 8.87868C17.2426 8 15.8284 8 13 8H11C8.17157 8 6.75736 8 5.87868 8.87868C5 9.75736 5 11.1716 5 14V16C5 18.8284 5 20.2422 5.87868 21.1213C6.75736 22 8.17157 22 11 22H13C15.8284 22 17.2422 22 18.1213 21.1213C19 20.2422 19 18.8284 19 16Z"
+                        stroke-linejoin="round" />
 
-        <div class="login-header">
+                    <path
+                        d="M13.5 3.5C13.5 4.32843 12.8284 5 12 5C11.1716 5 10.5 4.32843 10.5 3.5C10.5 2.67157 11.1716 2 12 2C12.8284 2 13.5 2.67157 13.5 3.5Z" />
 
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="32"
-                height="32"
-                fill="none"
-                stroke="#3b82f6"
-                stroke-width="1.5"
-            >
-                <path
-                    d="M19 16V14C19 11.1716 19 9.75736 18.1213 8.87868C17.2426 8 15.8284 8 13 8H11C8.17157 8 6.75736 8 5.87868 8.87868C5 9.75736 5 11.1716 5 14V16C5 18.8284 5 20.2422 5.87868 21.1213C6.75736 22 8.17157 22 11 22H13C15.8284 22 17.2422 22 18.1213 21.1213C19 20.2422 19 18.8284 19 16Z"
-                    stroke-linejoin="round"
-                />
+                    <path d="M12 5V8" stroke-linecap="round" />
 
-                <path
-                    d="M13.5 3.5C13.5 4.32843 12.8284 5 12 5C11.1716 5 10.5 4.32843 10.5 3.5C10.5 2.67157 11.1716 2 12 2C12.8284 2 13.5 2.67157 13.5 3.5Z"
-                />
+                    <path d="M9 13V14" stroke-linecap="round" />
 
-                <path d="M12 5V8" stroke-linecap="round"/>
+                    <path d="M15 13V14" stroke-linecap="round" />
 
-                <path d="M9 13V14" stroke-linecap="round"/>
+                    <path
+                        d="M10 17.5C10 17.5 10.6667 18 12 18C13.3333 18 14 17.5 14 17.5"
+                        stroke-linecap="round" />
+                </svg>
 
-                <path d="M15 13V14" stroke-linecap="round"/>
+                <h2>تامین فلات</h2>
 
-                <path
-                    d="M10 17.5C10 17.5 10.6667 18 12 18C13.3333 18 14 17.5 14 17.5"
-                    stroke-linecap="round"
-                />
-            </svg>
+                <h1>ورود به داشبورد</h1>
 
-            <h2>تامین فلات</h2>
+            </div>
 
-            <h1>ورود به داشبورد</h1>
+            <?php if (isset($error)): ?>
+
+                <p class="error">
+                    <?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?>
+                </p>
+
+            <?php endif; ?>
+
+            <form method="POST">
+
+                <input
+                    type="text"
+                    name="user"
+                    placeholder="نام کاربری"
+                    required>
+
+                <input
+                    type="password"
+                    name="pass"
+                    placeholder="رمز عبور"
+                    required>
+
+                <button type="submit">
+                    ورود
+                </button>
+
+            </form>
 
         </div>
 
-        <?php if (isset($error)): ?>
+    </body>
 
-            <p class="error">
-                <?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?>
-            </p>
-
-        <?php endif; ?>
-
-        <form method="POST">
-
-            <input
-                type="text"
-                name="user"
-                placeholder="نام کاربری"
-                required
-            >
-
-            <input
-                type="password"
-                name="pass"
-                placeholder="رمز عبور"
-                required
-            >
-
-            <button type="submit">
-                ورود
-            </button>
-
-        </form>
-
-    </div>
-
-</body>
-
-</html>
+    </html>
 
 <?php
-exit;
+    exit;
 }
 
 /*
@@ -365,13 +355,11 @@ $pdfDate = $pdfExists
 
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+        content="width=device-width, initial-scale=1.0">
 
     <title>داشبورد - تامین فلات</title>
 
     <style>
-
         @font-face {
             font-family: 'Kalameh';
             src: url('../assets/fonts/KalamehWeb(FaNum)-Regular.woff2') format('woff2');
@@ -976,7 +964,6 @@ $pdfDate = $pdfExists
             }
 
         }
-
     </style>
 
 </head>
@@ -990,8 +977,7 @@ $pdfDate = $pdfExists
         id="mobileMenuBtn"
         type="button"
         aria-label="باز کردن منو"
-        aria-expanded="false"
-    >
+        aria-expanded="false">
 
         <span></span>
         <span></span>
@@ -1004,8 +990,7 @@ $pdfDate = $pdfExists
 
     <div
         class="menu-overlay"
-        id="menuOverlay"
-    ></div>
+        id="menuOverlay"></div>
 
 
     <!-- Sidebar -->
@@ -1021,22 +1006,18 @@ $pdfDate = $pdfExists
                 height="28"
                 fill="none"
                 stroke="#3b82f6"
-                stroke-width="1.5"
-            >
+                stroke-width="1.5">
 
                 <path
                     d="M19 16V14C19 11.1716 19 9.75736 18.1213 8.87868C17.2426 8 15.8284 8 13 8H11C8.17157 8 6.75736 8 5.87868 8.87868C5 9.75736 5 11.1716 5 14V16C5 18.8284 5 20.2422 5.87868 21.1213C6.75736 22 8.17157 22 11 22H13C15.8284 22 15.2422 22 18.1213 21.1213C19 20.2422 19 18.8284 19 16Z"
-                    stroke-linejoin="round"
-                />
+                    stroke-linejoin="round" />
 
                 <path
-                    d="M13.5 3.5C13.5 4.32843 12.8284 5 12 5C11.1716 5 10.5 4.32843 10.5 3.5C10.5 2.67157 11.1716 2 12 2C12.8284 2 13.5 2.67157 13.5 3.5Z"
-                />
+                    d="M13.5 3.5C13.5 4.32843 12.8284 5 12 5C11.1716 5 10.5 4.32843 10.5 3.5C10.5 2.67157 11.1716 2 12 2C12.8284 2 13.5 2.67157 13.5 3.5Z" />
 
                 <path
                     d="M12 5V8"
-                    stroke-linecap="round"
-                />
+                    stroke-linecap="round" />
 
             </svg>
 
@@ -1051,8 +1032,7 @@ $pdfDate = $pdfExists
 
             <a
                 href="?page=dashboard"
-                class="<?= $activePage === 'dashboard' ? 'active' : '' ?>"
-            >
+                class="<?= $activePage === 'dashboard' ? 'active' : '' ?>">
 
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -1062,24 +1042,19 @@ $pdfDate = $pdfExists
                     fill="none"
                     stroke="currentColor"
                     stroke-width="1.5"
-                    stroke-linecap="round"
-                >
+                    stroke-linecap="round">
 
                     <path
-                        d="M13 11C13 8.79086 11.2091 7 9 7C6.79086 7 5 8.79086 5 11C5 13.2091 6.79086 15 9 15C11.2091 15 13 13.2091 13 11Z"
-                    />
+                        d="M13 11C13 8.79086 11.2091 7 9 7C6.79086 7 5 8.79086 5 11C5 13.2091 6.79086 15 9 15C11.2091 15 13 13.2091 13 11Z" />
 
                     <path
-                        d="M15 21C15 17.6863 12.3137 15 9 15C5.68629 15 3 17.6863 3 21"
-                    />
+                        d="M15 21C15 17.6863 12.3137 15 9 15C5.68629 15 3 17.6863 3 21" />
 
                     <path
-                        d="M21 17C21 13.6863 18.3137 11 15 11"
-                    />
+                        d="M21 17C21 13.6863 18.3137 11 15 11" />
 
                     <path
-                        d="M11.0386 7.55773C11.5412 6.60885 12.3702 6 13.5 6C15.433 6 17 7.567 17 9.5"
-                    />
+                        d="M11.0386 7.55773C11.5412 6.60885 12.3702 6 13.5 6C15.433 6 17 7.567 17 9.5" />
 
                 </svg>
 
@@ -1092,8 +1067,7 @@ $pdfDate = $pdfExists
 
             <a
                 href="?page=users"
-                class="<?= $activePage === 'users' ? 'active' : '' ?>"
-            >
+                class="<?= $activePage === 'users' ? 'active' : '' ?>">
 
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -1103,24 +1077,19 @@ $pdfDate = $pdfExists
                     fill="none"
                     stroke="currentColor"
                     stroke-width="1.5"
-                    stroke-linecap="round"
-                >
+                    stroke-linecap="round">
 
                     <path
-                        d="M13 11C13 8.79086 11.2091 7 9 7C6.79086 7 5 8.79086 5 11C5 13.2091 6.79086 15 9 15C11.2091 15 13 13.2091 13 11Z"
-                    />
+                        d="M13 11C13 8.79086 11.2091 7 9 7C6.79086 7 5 8.79086 5 11C5 13.2091 6.79086 15 9 15C11.2091 15 13 13.2091 13 11Z" />
 
                     <path
-                        d="M15 21C15 17.6863 12.3137 15 9 15C5.68629 15 3 17.6863 3 21"
-                    />
+                        d="M15 21C15 17.6863 12.3137 15 9 15C5.68629 15 3 17.6863 3 21" />
 
                     <path
-                        d="M21 17C21 13.6863 18.3137 11 15 11"
-                    />
+                        d="M21 17C21 13.6863 18.3137 11 15 11" />
 
                     <path
-                        d="M11.0386 7.55773C11.5412 6.60885 12.3702 6 13.5 6C15.433 6 17 7.567 17 9.5"
-                    />
+                        d="M11.0386 7.55773C11.5412 6.60885 12.3702 6 13.5 6C15.433 6 17 7.567 17 9.5" />
 
                 </svg>
 
@@ -1133,8 +1102,7 @@ $pdfDate = $pdfExists
 
             <a
                 href="?page=surveys"
-                class="<?= $activePage === 'surveys' ? 'active' : '' ?>"
-            >
+                class="<?= $activePage === 'surveys' ? 'active' : '' ?>">
 
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -1144,20 +1112,16 @@ $pdfDate = $pdfExists
                     fill="none"
                     stroke="currentColor"
                     stroke-width="1.5"
-                    stroke-linecap="round"
-                >
+                    stroke-linecap="round">
 
                     <path
-                        d="M15 21V6C15 5.06812 15 4.60218 14.8478 4.23463C14.6448 3.74458 14.2554 3.35523 13.7654 3.15224C13.3978 3 12.9319 3 12 3C11.0681 3 10.6022 3 10.2346 3.15224C9.74458 3.35523 9.35523 3.74458 9.15224 4.23463C9 4.60218 9 5.06812 9 6V21H15Z"
-                    />
+                        d="M15 21V6C15 5.06812 15 4.60218 14.8478 4.23463C14.6448 3.74458 14.2554 3.35523 13.7654 3.15224C13.3978 3 12.9319 3 12 3C11.0681 3 10.6022 3 10.2346 3.15224C9.74458 3.35523 9.35523 3.74458 9.15224 4.23463C9 4.60218 9 5.06812 9 6V21H15Z" />
 
                     <path
-                        d="M17 8H15V21H17C18.8856 21 19.8284 21 20.4142 20.4142C21 19.8284 21 18.8856 21 17V12C21 10.1144 21 9.17157 20.4142 8.58579C20.8284 8 19.8856 8 17 8Z"
-                    />
+                        d="M17 8H15V21H17C18.8856 21 19.8284 21 20.4142 20.4142C21 19.8284 21 18.8856 21 17V12C21 10.1144 21 9.17157 20.4142 8.58579C20.8284 8 19.8856 8 17 8Z" />
 
                     <path
-                        d="M9 13H7C5.11438 13 4.17157 13 3.58579 13.5858C3 14.1716 3 15.1144 3 17C3 18.8856 3 19.8284 3.58579 20.4142C4.17157 21 5.11438 21 7 21H9V13Z"
-                    />
+                        d="M9 13H7C5.11438 13 4.17157 13 3.58579 13.5858C3 14.1716 3 15.1144 3 17C3 18.8856 3 19.8284 3.58579 20.4142C4.17157 21 5.11438 21 7 21H9V13Z" />
 
                 </svg>
 
@@ -1170,8 +1134,7 @@ $pdfDate = $pdfExists
 
             <a
                 href="?page=routines"
-                class="<?= $activePage === 'routines' ? 'active' : '' ?>"
-            >
+                class="<?= $activePage === 'routines' ? 'active' : '' ?>">
 
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -1181,16 +1144,13 @@ $pdfDate = $pdfExists
                     fill="none"
                     stroke="currentColor"
                     stroke-width="1.5"
-                    stroke-linecap="round"
-                >
+                    stroke-linecap="round">
 
                     <path
-                        d="M14 3.5H10C6.22876 3.5 4.34315 3.5 3.17157 4.67157C2 5.84315 2 7.72876 2 11.5V12.5C2 16.2712 2 18.1569 3.17157 19.3284C4.34315 20.5 6.22876 20.5 10 20.5H14C17.7712 20.5 19.6569 20.5 20.8284 19.3284C22 18.1569 22 16.2712 22 12.5V11.5C22 7.72876 22 5.84315 20.8284 4.67157C19.6569 3.5 17.7712 3.5 14 3.5Z"
-                    />
+                        d="M14 3.5H10C6.22876 3.5 4.34315 3.5 3.17157 4.67157C2 5.84315 2 7.72876 2 11.5V12.5C2 16.2712 2 18.1569 3.17157 19.3284C4.34315 20.5 6.22876 20.5 10 20.5H14C17.7712 20.5 19.6569 20.5 20.8284 19.3284C22 18.1569 22 16.2712 22 12.5V11.5C22 7.72876 22 5.84315 20.8284 4.67157C19.6569 3.5 17.7712 3.5 14 3.5Z" />
 
                     <path
-                        d="M8 12H16M8 8.5H16M8 15.5H13"
-                    />
+                        d="M8 12H16M8 8.5H16M8 15.5H13" />
 
                 </svg>
 
@@ -1207,8 +1167,7 @@ $pdfDate = $pdfExists
 
             <a
                 href="?logout"
-                class="logout"
-            >
+                class="logout">
 
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -1218,16 +1177,13 @@ $pdfDate = $pdfExists
                     fill="none"
                     stroke="currentColor"
                     stroke-width="1.5"
-                    stroke-linecap="round"
-                >
+                    stroke-linecap="round">
 
                     <path
-                        d="M21 12H14M19.5 9.5C19.5 9.5 22 11.3412 22 12C22 12.6588 19.5 14.5 19.5 14.5"
-                    />
+                        d="M21 12H14M19.5 9.5C19.5 9.5 22 11.3412 22 12C22 12.6588 19.5 14.5 19.5 14.5" />
 
                     <path
-                        d="M11 4H8C6.11438 4 5.17157 4 4.58579 4.58579C4 5.17157 4 6.11438 4 8V16C4 17.8856 4 18.8284 4.58579 19.4142C5.17157 20 6.11438 20 8 20H11"
-                    />
+                        d="M11 4H8C6.11438 4 5.17157 4 4.58579 4.58579C4 5.17157 4 6.11438 4 8V16C4 17.8856 4 18.8284 4.58579 19.4142C5.17157 20 6.11438 20 8 20H11" />
 
                 </svg>
 
@@ -1258,20 +1214,16 @@ $pdfDate = $pdfExists
                         fill="none"
                         stroke="#3b82f6"
                         stroke-width="1.5"
-                        stroke-linecap="round"
-                    >
+                        stroke-linecap="round">
 
                         <path
-                            d="M13 11C13 8.79086 11.2091 7 9 7C6.79086 7 5 8.79086 5 11C5 13.2091 6.79086 15 9 15C11.2091 15 13 13.2091 13 11Z"
-                        />
+                            d="M13 11C13 8.79086 11.2091 7 9 7C6.79086 7 5 8.79086 5 11C5 13.2091 6.79086 15 9 15C11.2091 15 13 13.2091 13 11Z" />
 
                         <path
-                            d="M15 21C15 17.6863 12.3137 15 9 15C5.68629 15 3 17.6863 3 21"
-                        />
+                            d="M15 21C15 17.6863 12.3137 15 9 15C5.68629 15 3 17.6863 3 21" />
 
                         <path
-                            d="M21 17C21 13.6863 18.3137 11 15 11"
-                        />
+                            d="M21 17C21 13.6863 18.3137 11 15 11" />
 
                     </svg>
 
@@ -1326,20 +1278,16 @@ $pdfDate = $pdfExists
                         fill="none"
                         stroke="#3b82f6"
                         stroke-width="1.5"
-                        stroke-linecap="round"
-                    >
+                        stroke-linecap="round">
 
                         <path
-                            d="M13 11C13 8.79086 11.2091 7 9 7C6.79086 7 5 8.79086 5 11C5 13.2091 6.79086 15 9 15C11.2091 15 13 13.2091 13 11Z"
-                        />
+                            d="M13 11C13 8.79086 11.2091 7 9 7C6.79086 7 5 8.79086 5 11C5 13.2091 6.79086 15 9 15C11.2091 15 13 13.2091 13 11Z" />
 
                         <path
-                            d="M15 21C15 17.6863 12.3137 15 9 15C5.68629 15 3 17.6863 3 21"
-                        />
+                            d="M15 21C15 17.6863 12.3137 15 9 15C5.68629 15 3 17.6863 3 21" />
 
                         <path
-                            d="M21 17C21 13.6863 18.3137 11 15 11"
-                        />
+                            d="M21 17C21 13.6863 18.3137 11 15 11" />
 
                     </svg>
 
@@ -1409,20 +1357,16 @@ $pdfDate = $pdfExists
                         fill="none"
                         stroke="#3b82f6"
                         stroke-width="1.5"
-                        stroke-linecap="round"
-                    >
+                        stroke-linecap="round">
 
                         <path
-                            d="M15 21V6C15 5.06812 15 4.60218 14.8478 4.23463C14.6448 3.74458 14.2554 3.35523 13.7654 3.15224C13.3978 3 12.9319 3 12 3C11.0681 3 10.6022 3 10.2346 3.15224C9.74458 3.35523 9.35523 3.74463 9.15224 4.23463C9 4.60218 9 5.06812 9 6V21H15Z"
-                        />
+                            d="M15 21V6C15 5.06812 15 4.60218 14.8478 4.23463C14.6448 3.74458 14.2554 3.35523 13.7654 3.15224C13.3978 3 12.9319 3 12 3C11.0681 3 10.6022 3 10.2346 3.15224C9.74458 3.35523 9.35523 3.74463 9.15224 4.23463C9 4.60218 9 5.06812 9 6V21H15Z" />
 
                         <path
-                            d="M17 8H15V21H17C18.8856 21 19.8284 21 20.4142 20.4142C21 19.8284 21 18.8856 21 17V12C21 10.1144 21 9.17157 20.4142 8.58579C20 8 18.8856 8 17 8Z"
-                        />
+                            d="M17 8H15V21H17C18.8856 21 19.8284 21 20.4142 20.4142C21 19.8284 21 18.8856 21 17V12C21 10.1144 21 9.17157 20.4142 8.58579C20 8 18.8856 8 17 8Z" />
 
                         <path
-                            d="M9 13H7C5.11438 13 4.17157 13 3.58579 13.5858C3 14.1716 3 15.1144 3 17C3 18.8856 3 19.8284 3.58579 20.4142C4.17157 21 5.11438 21 7 21H9V13Z"
-                        />
+                            d="M9 13H7C5.11438 13 4.17157 13 3.58579 13.5858C3 14.1716 3 15.1144 3 17C3 18.8856 3 19.8284 3.58579 20.4142C4.17157 21 5.11438 21 7 21H9V13Z" />
 
                     </svg>
 
@@ -1469,11 +1413,10 @@ $pdfDate = $pdfExists
 
                                 <span
                                     class="badge <?= htmlspecialchars(
-                                        $row['rating'],
-                                        ENT_QUOTES,
-                                        'UTF-8'
-                                    ) ?>"
-                                >
+                                                        $row['rating'],
+                                                        ENT_QUOTES,
+                                                        'UTF-8'
+                                                    ) ?>">
 
                                     <?= htmlspecialchars(
                                         $row['rating'],
@@ -1516,16 +1459,13 @@ $pdfDate = $pdfExists
                         fill="none"
                         stroke="#3b82f6"
                         stroke-width="1.5"
-                        stroke-linecap="round"
-                    >
+                        stroke-linecap="round">
 
                         <path
-                            d="M14 3.5H10C6.22876 3.5 4.34315 3.5 3.17157 4.67157C2 5.84315 2 7.72876 2 11.5V12.5C2 16.2712 2 18.1569 3.17157 19.3284C4.34315 20.5 6.22876 20.5 10 20.5H14C17.7712 20.5 19.6569 20.5 20.8284 19.3284C22 18.1569 22 16.2712 22 12.5V11.5C22 7.72876 22 5.84315 20.8284 4.67157C19.6569 3.5 17.7712 3.5 14 3.5Z"
-                        />
+                            d="M14 3.5H10C6.22876 3.5 4.34315 3.5 3.17157 4.67157C2 5.84315 2 7.72876 2 11.5V12.5C2 16.2712 2 18.1569 3.17157 19.3284C4.34315 20.5 6.22876 20.5 10 20.5H14C17.7712 20.5 19.6569 20.5 20.8284 19.3284C22 18.1569 22 16.2712 22 12.5V11.5C22 7.72876 22 5.84315 20.8284 4.67157C19.6569 3.5 17.7712 3.5 14 3.5Z" />
 
                         <path
-                            d="M8 12H16M8 8.5H16M8 15.5H13"
-                        />
+                            d="M8 12H16M8 8.5H16M8 15.5H13" />
 
                     </svg>
 
@@ -1540,11 +1480,10 @@ $pdfDate = $pdfExists
 
                 <div
                     class="alert <?= htmlspecialchars(
-                        $uploadMessage['type'],
-                        ENT_QUOTES,
-                        'UTF-8'
-                    ) ?>"
-                >
+                                        $uploadMessage['type'],
+                                        ENT_QUOTES,
+                                        'UTF-8'
+                                    ) ?>">
 
                     <?= htmlspecialchars(
                         $uploadMessage['text'],
@@ -1569,16 +1508,13 @@ $pdfDate = $pdfExists
                         fill="none"
                         stroke="currentColor"
                         stroke-width="1.5"
-                        stroke-linecap="round"
-                    >
+                        stroke-linecap="round">
 
                         <path
-                            d="M12 15V3M12 3L8 7M12 3L16 7"
-                        />
+                            d="M12 15V3M12 3L8 7M12 3L16 7" />
 
                         <path
-                            d="M3 15C3 18.866 6.13401 22 10 22H14C17.866 22 21 18.866 21 15"
-                        />
+                            d="M3 15C3 18.866 6.13401 22 10 22H14C17.866 22 21 18.866 21 15" />
 
                     </svg>
 
@@ -1589,13 +1525,11 @@ $pdfDate = $pdfExists
 
                 <form
                     method="POST"
-                    enctype="multipart/form-data"
-                >
+                    enctype="multipart/form-data">
 
                     <div
                         class="upload-zone"
-                        onclick="document.getElementById('price_pdf').click()"
-                    >
+                        onclick="document.getElementById('price_pdf').click()">
 
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -1605,16 +1539,13 @@ $pdfDate = $pdfExists
                             fill="none"
                             stroke="#94a3b8"
                             stroke-width="1.5"
-                            stroke-linecap="round"
-                        >
+                            stroke-linecap="round">
 
                             <path
-                                d="M12 15V3M12 3L8 7M12 3L16 7"
-                            />
+                                d="M12 15V3M12 3L8 7M12 3L16 7" />
 
                             <path
-                                d="M3 15C3 18.866 6.13401 22 10 22H14C17.866 22 21 18.866 21 15"
-                            />
+                                d="M3 15C3 18.866 6.13401 22 10 22H14C17.866 22 21 18.866 21 15" />
 
                         </svg>
 
@@ -1634,14 +1565,12 @@ $pdfDate = $pdfExists
                         type="file"
                         name="price_pdf"
                         id="price_pdf"
-                        accept="application/pdf"
-                    >
+                        accept="application/pdf">
 
 
                     <button
                         type="submit"
-                        class="btn-upload"
-                    >
+                        class="btn-upload">
                         📥 ایمپورت فایل و بروزرسانی
                     </button>
 
@@ -1651,21 +1580,19 @@ $pdfDate = $pdfExists
 
 
             <script>
-
                 document
                     .getElementById('price_pdf')
-                    .addEventListener('change', function () {
+                    .addEventListener('change', function() {
 
                         const label =
                             document.getElementById('file-name-label');
 
                         label.textContent =
-                            this.files[0]
-                                ? this.files[0].name
-                                : 'برای انتخاب فایل کلیک کنید';
+                            this.files[0] ?
+                            this.files[0].name :
+                            'برای انتخاب فایل کلیک کنید';
 
                     });
-
             </script>
 
         <?php endif; ?>
@@ -1676,7 +1603,6 @@ $pdfDate = $pdfExists
     <!-- Mobile Menu JavaScript -->
 
     <script>
-
         const menuBtn =
             document.getElementById('mobileMenuBtn');
 
@@ -1766,7 +1692,7 @@ $pdfDate = $pdfExists
 
         sidebar
             .querySelectorAll('nav a')
-            .forEach(function (link) {
+            .forEach(function(link) {
 
                 link.addEventListener(
                     'click',
@@ -1803,7 +1729,7 @@ $pdfDate = $pdfExists
 
         document.addEventListener(
             'keydown',
-            function (event) {
+            function(event) {
 
                 if (
                     event.key === 'Escape' &&
@@ -1826,7 +1752,7 @@ $pdfDate = $pdfExists
 
         window.addEventListener(
             'resize',
-            function () {
+            function() {
 
                 if (window.innerWidth > 768) {
 
@@ -1845,10 +1771,8 @@ $pdfDate = $pdfExists
 
             }
         );
-
     </script>
 
 </body>
 
 </html>
-```
