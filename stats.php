@@ -27,12 +27,12 @@ if (isset($_SESSION['auth']) && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($
     if ($file['error'] === UPLOAD_ERR_OK && $file['type'] === 'application/pdf') {
         $dest = '/var/www/bot/assets/files/price-list.pdf';
         if (move_uploaded_file($file['tmp_name'], $dest)) {
-            $uploadMessage = ['type' => 'success', 'text' => '✅ فایل با موفقیت بارگذاری و جایگزین شد.'];
+            $uploadMessage = ['type' => 'success', 'text' => 'فایل با موفقیت بارگذاری و جایگزین شد.'];
         } else {
-            $uploadMessage = ['type' => 'error', 'text' => '❌ خطا در ذخیره فایل روی سرور.'];
+            $uploadMessage = ['type' => 'error', 'text' => 'خطا در ذخیره فایل روی سرور.'];
         }
     } else {
-        $uploadMessage = ['type' => 'error', 'text' => '❌ لطفاً فقط فایل PDF آپلود کنید.'];
+        $uploadMessage = ['type' => 'error', 'text' => 'فیلد فایل PDF الزامی است.'];
     }
 }
 
@@ -688,18 +688,9 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
                     </svg>
                     کاربران
                 </h1>
-                <p>لیست کاربرانی که ربات را استارت کرده‌اند</p>
-            </div>
-
-            <div class="grid">
-                <div class="stat-card">
-                    <div class="num"><?= $users ?></div>
-                    <div class="label">کل کاربران</div>
-                </div>
             </div>
 
             <div class="table-card">
-                <div class="table-card-header">لیست کاربران</div>
                 <table>
                     <tr>
                         <th>نام کاربر</th>
@@ -725,34 +716,9 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
                     </svg>
                     نظرسنجی‌ها
                 </h1>
-                <p>نتایج نظرسنجی رضایت مشتریان</p>
-            </div>
-
-            <div class="grid">
-                <div class="stat-card">
-                    <div class="num"><?= $surveys ?></div>
-                    <div class="label">کل نظرها</div>
-                </div>
-                <div class="stat-card">
-                    <div class="num"><?= $great ?></div>
-                    <div class="label">😍 عالی</div>
-                </div>
-                <div class="stat-card">
-                    <div class="num"><?= $good ?></div>
-                    <div class="label">😊 خوب</div>
-                </div>
-                <div class="stat-card">
-                    <div class="num"><?= $mid ?></div>
-                    <div class="label">🙂 متوسط</div>
-                </div>
-                <div class="stat-card">
-                    <div class="num"><?= $bad ?></div>
-                    <div class="label">☹️ ضعیف</div>
-                </div>
             </div>
 
             <div class="table-card">
-                <div class="table-card-header">جزئیات نظرسنجی‌ها</div>
                 <table>
                     <tr>
                         <th>نام کاربر</th>
@@ -779,7 +745,6 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
                     </svg>
                     روتین‌های ربات
                 </h1>
-                <p>مدیریت فایل‌ها و تنظیمات ربات</p>
             </div>
 
             <?php if ($uploadMessage): ?>
@@ -794,17 +759,6 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
                     </svg>
                     آپلود فهرست اقلام و قیمت
                 </h2>
-
-                <?php if ($pdfExists): ?>
-                    <div class="file-info">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M9 17H15M9 13H15M9 9H11" stroke-linecap="round" />
-                            <path d="M20 8.5V9C20 13.2426 20 15.364 18.682 16.682C17.364 18 15.2426 18 11 18H9C6.17157 18 4.75736 18 3.87868 17.1213C3 16.2426 3 14.8284 3 12V8C3 5.17157 3 3.75736 3.87868 2.87868C4.75736 2 6.17157 2 9 2H13C14.1947 2 14.7921 2 15.2941 2.17412M20 8.5C20 8.5 20 8 19 7L16 4C15 3 14.5 3 14.5 3M20 8.5H16C14.8954 8.5 14 7.60457 14 6.5V3" />
-                        </svg>
-                        آخرین فایل: <?= $pdfDate ?> —
-                        <a href="https://bot.taminfalat.com/assets/files/price-list.pdf" target="_blank">مشاهده فایل فعلی</a>
-                    </div>
-                <?php endif; ?>
 
                 <form method="POST" enctype="multipart/form-data">
                     <div class="upload-zone" onclick="document.getElementById('price_pdf').click()">
