@@ -764,7 +764,7 @@ $pdfDate = $pdfExists
                 position: fixed;
                 top: 14px;
                 right: 14px;
-                z-index: 1002;
+                z-index: 998;
 
                 width: 44px;
                 height: 44px;
