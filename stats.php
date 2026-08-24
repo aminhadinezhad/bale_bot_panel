@@ -233,7 +233,6 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
             min-height: 100vh;
         }
 
-        /* ساید بار */
         .sidebar {
             width: 240px;
             background: #fff;
@@ -593,7 +592,6 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
             display: block;
         }
 
-        /* موبایل */
         @media (max-width: 768px) {
             .hamburger {
                 display: flex;
@@ -667,7 +665,7 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
                     <path d="M17 8H15V21H17C18.8856 21 19.8284 21 20.4142 20.4142C21 19.8284 21 18.8856 21 17V12C21 10.1144 21 9.17157 20.4142 8.58579C19.8284 8 18.8856 8 17 8Z" />
                     <path d="M9 13H7C5.11438 13 4.17157 13 3.58579 13.5858C3 14.1716 3 15.1144 3 17C3 18.8856 3 19.8284 3.58579 20.4142C4.17157 21 5.11438 21 7 21H9V13Z" />
                 </svg>
-                نظرسنجی‌ها
+                نظرسنجی‌
             </a>
 
             <a href="?page=routines" class="<?= $activePage === 'routines' ? 'active' : '' ?>">
@@ -675,7 +673,7 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
                     <path d="M14 3.5H10C6.22876 3.5 4.34315 3.5 3.17157 4.67157C2 5.84315 2 7.72876 2 11.5V12.5C2 16.2712 2 18.1569 3.17157 19.3284C4.34315 20.5 6.22876 20.5 10 20.5H14C17.7712 20.5 19.6569 20.5 20.8284 19.3284C22 18.1569 22 16.2712 22 12.5V11.5C22 7.72876 22 5.84315 20.8284 4.67157C19.6569 3.5 17.7712 3.5 14 3.5Z" />
                     <path d="M8 12H16M8 8.5H16M8 15.5H13" />
                 </svg>
-                روتین‌های ربات
+                روتین‌ های ربات
             </a>
         </nav>
 
@@ -712,23 +710,7 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
                 </div>
                 <div class="stat-card">
                     <div class="num"><?= $surveys ?></div>
-                    <div class="label">کل نظرها</div>
-                </div>
-                <div class="stat-card">
-                    <div class="num"><?= $great ?></div>
-                    <div class="label">😍 عالی</div>
-                </div>
-                <div class="stat-card">
-                    <div class="num"><?= $good ?></div>
-                    <div class="label">😊 خوب</div>
-                </div>
-                <div class="stat-card">
-                    <div class="num"><?= $mid ?></div>
-                    <div class="label">🙂 متوسط</div>
-                </div>
-                <div class="stat-card">
-                    <div class="num"><?= $bad ?></div>
-                    <div class="label">☹️ ضعیف</div>
+                    <div class="label">کل نظرات</div>
                 </div>
             </div>
 
@@ -743,7 +725,6 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
                     </svg>
                     کاربران
                 </h1>
-                <p>لیست کاربرانی که ربات را استارت کرده‌اند</p>
             </div>
 
             <div class="table-card">
@@ -770,32 +751,8 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
                         <path d="M17 8H15V21H17C18.8856 21 19.8284 21 20.4142 20.4142C21 19.8284 21 18.8856 21 17V12C21 10.1144 21 9.17157 20.4142 8.58579C19.8284 8 18.8856 8 17 8Z" />
                         <path d="M9 13H7C5.11438 13 4.17157 13 3.58579 13.5858C3 14.1716 3 15.1144 3 17C3 18.8856 3 19.8284 3.58579 20.4142C4.17157 21 5.11438 21 7 21H9V13Z" />
                     </svg>
-                    نظرسنجی‌ها
+                    نظرسنجی
                 </h1>
-                <p>نتایج نظرسنجی رضایت مشتریان</p>
-            </div>
-
-            <div class="grid">
-                <div class="stat-card">
-                    <div class="num"><?= $surveys ?></div>
-                    <div class="label">کل نظرها</div>
-                </div>
-                <div class="stat-card">
-                    <div class="num"><?= $great ?></div>
-                    <div class="label">😍 عالی</div>
-                </div>
-                <div class="stat-card">
-                    <div class="num"><?= $good ?></div>
-                    <div class="label">😊 خوب</div>
-                </div>
-                <div class="stat-card">
-                    <div class="num"><?= $mid ?></div>
-                    <div class="label">🙂 متوسط</div>
-                </div>
-                <div class="stat-card">
-                    <div class="num"><?= $bad ?></div>
-                    <div class="label">☹️ ضعیف</div>
-                </div>
             </div>
 
             <div class="table-card">
@@ -823,9 +780,8 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
                         <path d="M14 3.5H10C6.22876 3.5 4.34315 3.5 3.17157 4.67157C2 5.84315 2 7.72876 2 11.5V12.5C2 16.2712 2 18.1569 3.17157 19.3284C4.34315 20.5 6.22876 20.5 10 20.5H14C17.7712 20.5 19.6569 20.5 20.8284 19.3284C22 18.1569 22 16.2712 22 12.5V11.5C22 7.72876 22 5.84315 20.8284 4.67157C19.6569 3.5 17.7712 3.5 14 3.5Z" />
                         <path d="M8 12H16M8 8.5H16M8 15.5H13" />
                     </svg>
-                    روتین‌های ربات
+                    روتین‌ های ربات
                 </h1>
-                <p>مدیریت فایل‌ها و تنظیمات ربات</p>
             </div>
 
             <?php if ($uploadMessage): ?>
@@ -838,7 +794,7 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
                         <path d="M12 15V3M12 3L8 7M12 3L16 7" />
                         <path d="M3 15C3 18.866 6.13401 22 10 22H14C17.866 22 21 18.866 21 15" />
                     </svg>
-                    آپلود فهرست اقلام و قیمت
+                    آپلود لیست اقلام + قیمت
                 </h2>
 
                 <?php if ($pdfExists): ?>
