@@ -303,7 +303,7 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
         }
 
         .logout:hover {
-            background: #dc2626;
+            background: #dc2626 !important;
         }
 
         .main {
