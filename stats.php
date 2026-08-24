@@ -24,14 +24,37 @@ if (isset($_GET['logout'])) {
 $uploadMessage = null;
 if (isset($_SESSION['auth']) && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['price_pdf'])) {
     $file = $_FILES['price_pdf'];
+
+    var_dump($file);
+
     if ($file['error'] === UPLOAD_ERR_OK && $file['type'] === 'application/pdf') {
         $dest = '/var/www/bot/assets/files/price-list.pdf';
+
+        echo '<pre>';
+        echo "TMP: " . $file['tmp_name'] . PHP_EOL;
+        echo "DEST: " . $dest . PHP_EOL;
+        var_dump(file_exists($file['tmp_name']));
+        var_dump(is_uploaded_file($file['tmp_name']));
+        var_dump(is_dir(dirname($dest)));
+        var_dump(is_writable(dirname($dest)));
+        echo '</pre>';
+
         if (move_uploaded_file($file['tmp_name'], $dest)) {
             $uploadMessage = ['type' => 'success', 'text' => 'فایل با موفقیت بارگذاری و جایگزین شد.'];
         } else {
+            echo '<pre>';
+            var_dump(error_get_last());
+            var_dump(is_dir('/var/www/bot/assets/files'));
+            var_dump(is_writable('/var/www/bot/assets/files'));
+            var_dump(file_exists('/var/www/bot/assets/files'));
+            echo '</pre>';
+
             $uploadMessage = ['type' => 'error', 'text' => 'خطا در ذخیره فایل روی سرور.'];
         }
     } else {
+        var_dump($file['error']);
+        var_dump($file['type']);
+
         $uploadMessage = ['type' => 'error', 'text' => 'فیلد فایل PDF الزامی است.'];
     }
 }
