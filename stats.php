@@ -296,18 +296,9 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
         }
 
         .logout {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 16px;
             background: #ef4444;
-            color: #fff;
+            color: #fff !important;
             border: none;
-            border-radius: 8px;
-            font-size: 13px;
-            cursor: pointer;
-            text-decoration: none;
-            width: 100%;
             justify-content: center;
         }
 
