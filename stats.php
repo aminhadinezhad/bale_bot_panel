@@ -45,25 +45,25 @@ if (!isset($_SESSION['auth'])) { ?>
         <style>
             @font-face {
                 font-family: 'Kalameh';
-                src: url('assets/fonts/KalamehWeb(FaNum)-Regular.woff2') format('woff2');
+                src: url('../assets/fonts/KalamehWeb(FaNum)-Regular.woff2') format('woff2');
                 font-weight: normal;
             }
 
             @font-face {
                 font-family: 'Kalameh';
-                src: url('assets/fonts/KalamehWeb(FaNum)-Medium.woff2') format('woff2');
+                src: url('../assets/fonts/KalamehWeb(FaNum)-Medium.woff2') format('woff2');
                 font-weight: 500;
             }
 
             @font-face {
                 font-family: 'Kalameh';
-                src: url('assets/fonts/KalamehWeb(FaNum)-SemiBold.woff2') format('woff2');
+                src: url('../assets/fonts/KalamehWeb(FaNum)-SemiBold.woff2') format('woff2');
                 font-weight: 600;
             }
 
             @font-face {
                 font-family: 'Kalameh';
-                src: url('assets/fonts/KalamehWeb(FaNum)-Bold.woff2') format('woff2');
+                src: url('../assets/fonts/KalamehWeb(FaNum)-Bold.woff2') format('woff2');
                 font-weight: bold;
             }
 
@@ -196,25 +196,25 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
     <style>
         @font-face {
             font-family: 'Kalameh';
-            src: url('assets/fonts/KalamehWeb(FaNum)-Regular.woff2') format('woff2');
+            src: url('../assets/fonts/KalamehWeb(FaNum)-Regular.woff2') format('woff2');
             font-weight: normal;
         }
 
         @font-face {
             font-family: 'Kalameh';
-            src: url('assets/fonts/KalamehWeb(FaNum)-Medium.woff2') format('woff2');
+            src: url('../assets/fonts/KalamehWeb(FaNum)-Medium.woff2') format('woff2');
             font-weight: 500;
         }
 
         @font-face {
             font-family: 'Kalameh';
-            src: url('assets/fonts/KalamehWeb(FaNum)-SemiBold.woff2') format('woff2');
+            src: url('../assets/fonts/KalamehWeb(FaNum)-SemiBold.woff2') format('woff2');
             font-weight: 600;
         }
 
         @font-face {
             font-family: 'Kalameh';
-            src: url('assets/fonts/KalamehWeb(FaNum)-Bold.woff2') format('woff2');
+            src: url('../assets/fonts/KalamehWeb(FaNum)-Bold.woff2') format('woff2');
             font-weight: bold;
         }
 
