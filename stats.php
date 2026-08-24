@@ -542,7 +542,7 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
-            padding: 8px;
+            padding: 12px;
             border: none;
             background: #fff;
             position: fixed;
@@ -793,7 +793,7 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
                         <path d="M12 15V3M12 3L8 7M12 3L16 7" />
                         <path d="M3 15C3 18.866 6.13401 22 10 22H14C17.866 22 21 18.866 21 15" />
                     </svg>
-                    آپلود لیست اقلام + قیمت
+                    آپلود فهرست اقلام + قیمت
                 </h2>
 
                 <form method="POST" enctype="multipart/form-data">
