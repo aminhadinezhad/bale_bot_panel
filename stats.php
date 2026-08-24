@@ -794,8 +794,6 @@ $pdfDate = $pdfExists
                 background: #334155;
 
                 border-radius: 2px;
-
-                transition: all 1s ease;
             }
 
             /*
