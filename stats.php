@@ -21,7 +21,6 @@ if (isset($_GET['logout'])) {
     exit;
 }
 
-// آپلود فایل PDF
 $uploadMessage = null;
 if (isset($_SESSION['auth']) && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['price_pdf'])) {
     $file = $_FILES['price_pdf'];
@@ -173,7 +172,6 @@ if (!isset($_SESSION['auth'])) { ?>
 <?php exit;
 }
 
-// داشبورد
 $db      = new SQLite3('/var/www/bot/data/bot.db');
 $users   = $db->querySingle("SELECT COUNT(*) FROM users");
 $surveys = $db->querySingle("SELECT COUNT(*) FROM surveys");
@@ -235,7 +233,6 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
             min-height: 100vh;
         }
 
-        /* ساید بار */
         .sidebar {
             width: 240px;
             background: #fff;
@@ -318,7 +315,6 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
             background: #dc2626;
         }
 
-        /* محتوای اصلی */
         .main {
             margin-right: 240px;
             padding: 30px;
@@ -343,7 +339,6 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
             margin-top: 4px;
         }
 
-        /* کارت‌های آمار */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -443,7 +438,6 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
             color: #dc2626;
         }
 
-        /* آپلود */
         .upload-card {
             background: #fff;
             border-radius: 10px;
@@ -541,7 +535,6 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
             color: #dc2626;
         }
 
-        /* موبایل */
         @media (max-width: 768px) {
             .sidebar {
                 width: 100%;
@@ -598,7 +591,6 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
 
 <body>
 
-    <!-- ساید بار -->
     <aside class="sidebar">
         <div class="sidebar-logo">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#3b82f6" stroke-width="1.5">
@@ -610,6 +602,16 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
         </div>
 
         <nav>
+            <a href="?page=dashboard" class="<?= $activePage === 'dashboard' ? 'active' : '' ?>">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                    <path d="M13 11C13 8.79086 11.2091 7 9 7C6.79086 7 5 8.79086 5 11C5 13.2091 6.79086 15 9 15C11.2091 15 13 13.2091 13 11Z" />
+                    <path d="M15 21C15 17.6863 12.3137 15 9 15C5.68629 15 3 17.6863 3 21" />
+                    <path d="M21 17C21 13.6863 18.3137 11 15 11" />
+                    <path d="M11.0386 7.55773C11.5412 6.60885 12.3702 6 13.5 6C15.433 6 17 7.567 17 9.5" />
+                </svg>
+                داشبورد
+            </a>
+
             <a href="?page=users" class="<?= $activePage === 'users' ? 'active' : '' ?>">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
                     <path d="M13 11C13 8.79086 11.2091 7 9 7C6.79086 7 5 8.79086 5 11C5 13.2091 6.79086 15 9 15C11.2091 15 13 13.2091 13 11Z" />
@@ -649,10 +651,34 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
         </div>
     </aside>
 
-    <!-- محتوا -->
     <main class="main">
 
-        <?php if ($activePage === 'users'): ?>
+        <?php if ($activePage === 'dashboard'): ?>
+
+            <div class="page-header">
+                <h1>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round">
+                        <path d="M13 11C13 8.79086 11.2091 7 9 7C6.79086 7 5 8.79086 5 11C5 13.2091 6.79086 15 9 15C11.2091 15 13 13.2091 13 11Z" />
+                        <path d="M15 21C15 17.6863 12.3137 15 9 15C5.68629 15 3 17.6863 3 21" />
+                        <path d="M21 17C21 13.6863 18.3137 11 15 11" />
+                    </svg>
+                    داشبورد
+                </h1>
+            </div>
+
+            <div class="grid">
+                <div class="stat-card">
+                    <div class="num"><?= $users ?></div>
+                    <div class="label">کل کاربران</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="num"><?= $surveys ?></div>
+                    <div class="label">کل نظرها</div>
+                </div>
+            </div>
+
+        <?php elseif ($activePage === 'users'): ?>
 
             <div class="page-header">
                 <h1>
