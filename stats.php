@@ -925,7 +925,7 @@ $pdfDate = $pdfExists
             */
 
             .mobile-menu-btn.active span:nth-child(1) {
-                transform: translateY(7px) rotate(45deg);
+                transform: translateY(7px) rotate(90deg);
             }
 
             .mobile-menu-btn.active span:nth-child(2) {
@@ -933,7 +933,7 @@ $pdfDate = $pdfExists
             }
 
             .mobile-menu-btn.active span:nth-child(3) {
-                transform: translateY(-7px) rotate(-45deg);
+                transform: translateY(-7px) rotate(-90deg);
             }
 
             /*
