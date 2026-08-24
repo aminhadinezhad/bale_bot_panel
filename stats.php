@@ -1,8 +1,5 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
-
 $config = require __DIR__ . '/config.php';
 
 $ADMIN_USER = $config['admin_user'];
