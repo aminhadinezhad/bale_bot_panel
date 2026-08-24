@@ -764,7 +764,7 @@ $pdfDate = $pdfExists
                 position: fixed;
                 top: 14px;
                 right: 14px;
-                z-index: 990;
+                z-index: 999;
 
                 width: 44px;
                 height: 44px;
@@ -821,7 +821,7 @@ $pdfDate = $pdfExists
                 flex-direction: column;
 
                 transform: translateX(100%);
-                transition: transform 3.25s ease;
+                transition: transform 0.25s ease;
             }
 
             .sidebar.open {
@@ -901,7 +901,7 @@ $pdfDate = $pdfExists
 
                 inset: 0;
 
-                z-index: 999;
+                z-index: 998;
 
                 background: rgba(15, 23, 42, 0.35);
 
@@ -1416,7 +1416,6 @@ $pdfDate = $pdfExists
 
         function openMenu() {
             sidebar.classList.add('open');
-            menuBtn.style.display = 'none';
             overlay.classList.add('active');
             menuBtn.setAttribute(
                 'aria-expanded',
@@ -1426,7 +1425,6 @@ $pdfDate = $pdfExists
 
         function closeMenu() {
             sidebar.classList.remove('open');
-            menuBtn.style.display = 'flex';
             overlay.classList.remove('active');
             menuBtn.setAttribute(
                 'aria-expanded',
