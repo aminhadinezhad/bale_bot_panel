@@ -785,6 +785,19 @@ $pdfDate = $pdfExists
                 cursor: pointer;
             }
 
+            .mobile-menu-btn span {
+                display: block;
+
+                width: 20px;
+                height: 2px;
+
+                background: #334155;
+
+                border-radius: 2px;
+
+                transition: all 1s ease;
+            }
+
             /*
             | Sidebar
             */
@@ -905,6 +918,22 @@ $pdfDate = $pdfExists
                 opacity: 1;
 
                 visibility: visible;
+            }
+
+            /*
+            | Hamburger -> X
+            */
+
+            .mobile-menu-btn.active span:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+
+            .mobile-menu-btn.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu-btn.active span:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
             }
 
             /*
@@ -1406,6 +1435,16 @@ $pdfDate = $pdfExists
             menuBtn.setAttribute(
                 'aria-expanded',
                 'true'
+            );
+        }
+
+        function closeMenu() {
+            sidebar.classList.remove('open');
+            menuBtn.classList.remove('active');
+            overlay.classList.remove('active');
+            menuBtn.setAttribute(
+                'aria-expanded',
+                'false'
             );
         }
 
