@@ -982,8 +982,8 @@ $pdfDate = $pdfExists
 
     <!-- Sidebar -->
     <aside class="sidebar">
-        <div>
-            <div class="sidebar-logo">
+        <div class="sidebar-logo">
+            <div>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -1003,7 +1003,17 @@ $pdfDate = $pdfExists
                 </svg>
                 <span>تامین فلات</span>
             </div>
-            test
+            <button
+                class="mobile-menu-btn"
+                id="mobileMenuBtn"
+                type="button"
+                aria-label="باز کردن منو"
+                aria-expanded="false">
+
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
 
         <nav>
