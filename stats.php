@@ -924,18 +924,6 @@ $pdfDate = $pdfExists
             | Hamburger -> X
             */
 
-            .mobile-menu-btn.active span:nth-child(1) {
-                transform: translateY(7px) rotate(90deg);
-            }
-
-            .mobile-menu-btn.active span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .mobile-menu-btn.active span:nth-child(3) {
-                transform: translateY(-7px) rotate(-90deg);
-            }
-
             /*
             | Tables
             */
