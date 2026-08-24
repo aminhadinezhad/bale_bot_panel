@@ -772,8 +772,6 @@ $pdfDate = $pdfExists
                 border: none;
                 border-radius: 10px;
 
-                background: #fff;
-
                 align-items: center;
                 justify-content: center;
 
