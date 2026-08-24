@@ -1003,18 +1003,7 @@ $pdfDate = $pdfExists
                 </svg>
                 <span>تامین فلات</span>
             </div>
-            
-            <button
-                class="mobile-menu-btn"
-                id="mobileMenuBtn"
-                type="button"
-                aria-label="باز کردن منو"
-                aria-expanded="false">
-
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            test
         </div>
 
         <nav>
