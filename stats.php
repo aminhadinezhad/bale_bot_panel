@@ -542,7 +542,7 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
-            padding: 12px;
+            padding: 10px;
             border: none;
             background: #fff;
             position: fixed;
@@ -560,7 +560,7 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
 
         .hamburger span {
             display: block;
-            width: 22px;
+            width: 20px;
             height: 2px;
             background: #1e293b;
             border-radius: 2px;
