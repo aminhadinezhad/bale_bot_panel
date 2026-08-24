@@ -972,7 +972,6 @@ $pdfDate = $pdfExists
         <span></span>
         <span></span>
         <span></span>
-
     </button>
 
     <!-- Mobile Overlay -->
@@ -983,25 +982,39 @@ $pdfDate = $pdfExists
 
     <!-- Sidebar -->
     <aside class="sidebar">
-        <div class="sidebar-logo">
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="28"
-                height="28"
-                fill="none"
-                stroke="#3b82f6"
-                stroke-width="1.5">
-                <path
-                    d="M19 16V14C19 11.1716 19 9.75736 18.1213 8.87868C17.2426 8 15.8284 8 13 8H11C8.17157 8 6.75736 8 5.87868 8.87868C5 9.75736 5 11.1716 5 14V16C5 18.8284 5 20.2422 5.87868 21.1213C6.75736 22 8.17157 22 11 22H13C15.8284 22 15.2422 22 18.1213 21.1213C19 20.2422 19 18.8284 19 16Z"
-                    stroke-linejoin="round" />
-                <path
-                    d="M13.5 3.5C13.5 4.32843 12.8284 5 12 5C11.1716 5 10.5 4.32843 10.5 3.5C10.5 2.67157 11.1716 2 12 2C12.8284 2 13.5 2.67157 13.5 3.5Z" />
-                <path
-                    d="M12 5V8"
-                    stroke-linecap="round" />
-            </svg>
-            <span>تامین فلات</span>
+        <div>
+            <div class="sidebar-logo">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="28"
+                    height="28"
+                    fill="none"
+                    stroke="#3b82f6"
+                    stroke-width="1.5">
+                    <path
+                        d="M19 16V14C19 11.1716 19 9.75736 18.1213 8.87868C17.2426 8 15.8284 8 13 8H11C8.17157 8 6.75736 8 5.87868 8.87868C5 9.75736 5 11.1716 5 14V16C5 18.8284 5 20.2422 5.87868 21.1213C6.75736 22 8.17157 22 11 22H13C15.8284 22 15.2422 22 18.1213 21.1213C19 20.2422 19 18.8284 19 16Z"
+                        stroke-linejoin="round" />
+                    <path
+                        d="M13.5 3.5C13.5 4.32843 12.8284 5 12 5C11.1716 5 10.5 4.32843 10.5 3.5C10.5 2.67157 11.1716 2 12 2C12.8284 2 13.5 2.67157 13.5 3.5Z" />
+                    <path
+                        d="M12 5V8"
+                        stroke-linecap="round" />
+                </svg>
+                <span>تامین فلات</span>
+            </div>
+            
+            <button
+                class="mobile-menu-btn"
+                id="mobileMenuBtn"
+                type="button"
+                aria-label="باز کردن منو"
+                aria-expanded="false">
+
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
 
         <nav>
@@ -1227,6 +1240,7 @@ $pdfDate = $pdfExists
                             </td>
                         </tr>
                     <?php endwhile; ?>
+
                 </table>
             </div>
 
@@ -1253,7 +1267,6 @@ $pdfDate = $pdfExists
                 </h1>
             </div>
 
-
             <div class="table-card">
                 <table>
 
@@ -1279,20 +1292,17 @@ $pdfDate = $pdfExists
                                 ) ?>
                             </td>
                             <td>
-
                                 <span
                                     class="badge <?= htmlspecialchars(
                                                         $row['rating'],
                                                         ENT_QUOTES,
                                                         'UTF-8'
                                                     ) ?>">
-
                                     <?= htmlspecialchars(
                                         $row['rating'],
                                         ENT_QUOTES,
                                         'UTF-8'
                                     ) ?>
-
                                 </span>
                             </td>
                             <td>
@@ -1304,6 +1314,7 @@ $pdfDate = $pdfExists
                             </td>
                         </tr>
                     <?php endwhile; ?>
+
                 </table>
             </div>
 
@@ -1328,7 +1339,6 @@ $pdfDate = $pdfExists
                 </h1>
             </div>
 
-
             <?php if ($uploadMessage): ?>
                 <div
                     class="alert <?= htmlspecialchars(
@@ -1343,7 +1353,6 @@ $pdfDate = $pdfExists
                     ) ?>
                 </div>
             <?php endif; ?>
-
 
             <div class="upload-card">
                 <h2>
@@ -1370,7 +1379,6 @@ $pdfDate = $pdfExists
                     <div
                         class="upload-zone"
                         onclick="document.getElementById('price_pdf').click()">
-
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
@@ -1409,7 +1417,6 @@ $pdfDate = $pdfExists
                 </form>
             </div>
 
-
             <script>
                 document
                     .getElementById('price_pdf')
@@ -1444,7 +1451,6 @@ $pdfDate = $pdfExists
             );
         }
 
-
         function closeMenu() {
             sidebar.classList.remove('open');
             menuBtn.classList.remove('active');
@@ -1454,7 +1460,6 @@ $pdfDate = $pdfExists
                 'false'
             );
         }
-
 
         function toggleMenu() {
             if (sidebar.classList.contains('open')) {
