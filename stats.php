@@ -226,6 +226,7 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -563,11 +564,12 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
             background: #1e293b;
             border-radius: 2px;
         }
+
         .overlay {
             display: none;
             position: fixed;
             inset: 0;
-            /* background: rgba(0, 0, 0, 0.3); */
+            background: rgba(0, 0, 0, 0.3);
             z-index: 999;
             backdrop-filter: blur(2px);
         }
