@@ -549,18 +549,13 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
             display: none;
             flex-direction: column;
             gap: 5px;
-            cursor: pointer;
             padding: 12px;
             border: none;
             background: #fff !important;
             border-radius: 8px;
             box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
         }
-
-        .hamburger:hover {
-            background: #f1f5f9;
-        }
-
+        
         .hamburger span {
             display: block;
             width: 20px;
