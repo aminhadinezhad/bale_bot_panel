@@ -232,7 +232,6 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
         body {
             background: #f1f5f9;
             color: #1e293b;
-            min-height: 100vh;
         }
 
         .sidebar {
