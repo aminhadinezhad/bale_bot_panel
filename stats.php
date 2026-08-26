@@ -553,13 +553,8 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
             padding: 12px;
             border: none;
             background: #fff !important;
-            position: fixed;
-            top: 16px;
-            left: 16px;
-            z-index: 1001;
             border-radius: 8px;
             box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-            transition: background 0.2s;
         }
 
         .hamburger:hover {
@@ -572,21 +567,7 @@ $pdfDate    = $pdfExists ? date('Y/m/d H:i', filemtime('/var/www/bot/assets/file
             height: 2px;
             background: #1e293b;
             border-radius: 2px;
-            transition: all 0.3s;
         }
-
-        .hamburger.open span:nth-child(1) {
-            transform: translateY(7px) rotate(45deg);
-        }
-
-        .hamburger.open span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.open span:nth-child(3) {
-            transform: translateY(-7px) rotate(-45deg);
-        }
-
         .overlay {
             display: none;
             position: fixed;
